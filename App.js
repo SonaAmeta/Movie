@@ -1,20 +1,24 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+// In App.js in a new project
 
-export default function App() {
+import * as React from 'react';
+import { View, Text,StatusBar } from 'react-native';
+import Routes from './src/Navigation/Routes';
+import { Toast } from 'react-native-toast-message/lib/src/Toast';
+
+
+function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1}}>
+      <StatusBar
+        backgroundColor="#f0f0f0" // Set the status bar background color
+        barStyle="dark-content" // Set the status bar text color (dark-content or light-content)
+      />
+      <Routes/>
+      <Toast forwardref={(ref) => Toast.setRef(ref)} />
+      
+
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+export default App;
